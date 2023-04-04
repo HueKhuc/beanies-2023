@@ -21,7 +21,9 @@ $beanies = [
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida'
     ],
     ];
-
+function prixHT ($prixTTC){
+    return $prixTTC/1.2;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -75,6 +77,9 @@ $beanies = [
     </td> 
     <td>
         <?php echo $nom;?>
+    </td>
+    <td>
+        <?php echo round(prixHT($prix),2);?>
     </td>
     <td <?php if ($prix<=12){ echo 'class="txtgreen"';}else{ echo 'class="txtblue"'; }?> >
         <?php echo $prix;?>
