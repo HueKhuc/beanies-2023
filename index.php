@@ -34,31 +34,40 @@ $beanies = [
         table {
             border: 1px solid;
         }
+        .txtgreen {
+            color : green;
+        }
+        .txtblue {
+            color : blue;
+        }
     </style>
 </head>
 <body>
 
-<table>
+<table> 
     <tr style="font-weight:bold; color:red;">
-    <td>  
-        No.
-    </td>
-    <td>  
-        Nom de bonnet
-    </td>
-    <td>  
-        Prix
-    </td>
-    <td>  
-        Description
-    </td>
-</tr>
+        <td>  
+            No.
+        </td>
+        <td>  
+            Nom de bonnet
+        </td>
+        <td>  
+            Prix HT (€)
+        </td>
+        <td>  
+            Prix TTC (€)
+        </td>
+        <td>  
+            Description
+        </td>
+    </tr>
     <?php
     foreach ($beanies as $key => $beanie){
         $nom = $beanie['nom'];
         $prix = $beanie['prix'];
         $description = $beanie['description'];
-?>
+    ?>
 
 <tr>
     <td>
@@ -67,7 +76,7 @@ $beanies = [
     <td>
         <?php echo $nom;?>
     </td>
-    <td>
+    <td <?php if ($prix<=12){ echo 'class="txtgreen"';}else{ echo 'class="txtblue"'; }?> >
         <?php echo $prix;?>
     </td>
     <td>
@@ -75,7 +84,7 @@ $beanies = [
     </td>
 </tr>
 <?php
-    }
+    };
 ?>
 </table>
 
