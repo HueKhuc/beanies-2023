@@ -1,6 +1,8 @@
 <?php 
+    session_start();
     require_once 'variable.php';
     require_once 'fonction.php';
+    
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,8 +17,6 @@
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    
-    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -28,7 +28,10 @@
         <li class="nav-item">
             <?php if (empty($_POST['login']))echo '
           <a class="nav-link active" aria-current="page" href="login.php">Login</a>';
-          else echo '<a class="nav-link active" aria-current="page" href="login.php">',$_POST['login'],'</a>'; ?>
+          else {echo '<a class="nav-link active" aria-current="page" href="login.php">';$_SESSION['login'] = $_POST['login']; print_r ($_SESSION['login']); echo '</a>';
+            echo '<a class="nav-link active" aria-current="page" href="logout.php">Logout</a>';
+        } 
+          ?>
         </li>
       </ul>
       <form class="d-flex">
