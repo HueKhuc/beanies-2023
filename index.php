@@ -24,6 +24,25 @@ $beanies = [
 function prixHT ($prixTTC){
     return $prixTTC/1.2;
 }
+function affichageProduit($a){
+        $nom = $a['nom'];
+        $prix = $a['prix'];
+        $description = $a['description'];
+    echo'
+    <td>',
+    $nom,
+    '</td>
+    <td>',
+         round(prixHT($prix),2),
+    '</td>
+    <td>',
+        $prix,
+    '</td>
+    <td>',
+        $description,
+    '</td>
+</tr>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -66,32 +85,14 @@ function prixHT ($prixTTC){
     </tr>
     <?php
     foreach ($beanies as $key => $beanie){
-        $nom = $beanie['nom'];
-        $prix = $beanie['prix'];
-        $description = $beanie['description'];
-    ?>
-
-<tr>
-    <td>
-        <?php echo $key + 1;?>
-    </td> 
-    <td>
-        <?php echo $nom;?>
-    </td>
-    <td>
-        <?php echo round(prixHT($prix),2);?>
-    </td>
-    <td <?php if ($prix<=12){ echo 'class="txtgreen"';}else{ echo 'class="txtblue"'; }?> >
-        <?php echo $prix;?>
-    </td>
-    <td>
-        <?php echo $description;?>
-    </td>
-</tr>
-<?php
+        echo'
+        <tr>
+        <td>',
+        $key + 1,
+            '</td>';
+affichageProduit($beanie);
     };
 ?>
 </table>
-
 </body>
 </html>
