@@ -25,6 +25,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="list.php">Tous produits</a>
         </li>
+        <li class="nav-item">
+            <?php if (empty($_POST['login']))echo '
+          <a class="nav-link active" aria-current="page" href="login.php">Login</a>';
+          else echo '<a class="nav-link active" aria-current="page" href="login.php">',$_POST['login'],'</a>'; ?>
+        </li>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
