@@ -17,17 +17,5 @@ include 'includes/header.php';
 </form>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // collect value of input field
-  $login = $_POST['login'];
-  if (empty($login)) {
-    echo "Email is empty";
-  } else {
-    echo $login;
-  }
-}
-?>
-
-<?php
 include 'includes/footer.php';  
 ?>
