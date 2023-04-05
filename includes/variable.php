@@ -1,4 +1,5 @@
 <?php
+$mdp = 'toto';
 $beanies = [
     [
         'nom'=>'bonnet en laine',
