@@ -1,48 +1,6 @@
 <?php
-$beanies = [
-    [
-        'nom'=>'bonnet en laine',
-        'prix' => 10,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida'
-    ],
-    [
-        'nom'=>'bonnet en laine bio',
-        'prix' => 14,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida'
-    ],
-    [
-        'nom'=>'bonnet en laine et cachemire',
-        'prix' => 20,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida'
-    ],
-    [
-        'nom'=>'bonnet arc en ciel',
-        'prix' => 12,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida'
-    ],
-    ];
-function prixHT ($prixTTC){
-    return $prixTTC/1.2;
-}
-function affichageProduit($a){
-        $nom = $a['nom'];
-        $prix = $a['prix'];
-        $description = $a['description'];
-    echo'
-    <td>',
-    $nom,
-    '</td>
-    <td>',
-         round(prixHT($prix),2),
-    '</td>
-    <td>',
-        $prix,
-    '</td>
-    <td>',
-        $description,
-    '</td>
-</tr>';
-}
+include 'variable.php';
+include 'fonction.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
