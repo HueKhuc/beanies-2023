@@ -20,16 +20,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        <a class="nav-link active" aria-current="page" href="?page=home">Home</a>
+          <!-- <a class="nav-link active" aria-current="page" href="home.php">Home</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="list.php">Tous produits</a>
+        <a class="nav-link active" aria-current="page" href="?page=list">Tous produits</a>
+          <!-- <a class="nav-link active" aria-current="page" href="list.php">Tous produits</a> -->
         </li>
         <li class="nav-item">
             <?php if (empty($_POST['login']))echo '
-          <a class="nav-link active" aria-current="page" href="login.php">Login</a>';
-          else {echo '<a class="nav-link active" aria-current="page" href="login.php">';$_SESSION['login'] = $_POST['login']; print_r ($_SESSION['login']); echo '</a>';
-            echo '<a class="nav-link active" aria-current="page" href="logout.php">Logout</a>';
+          <a class="nav-link active" aria-current="page" href="?page=login">Login</a>';
+          else {echo '<a class="nav-link active" aria-current="page" href="?page=login">';$_SESSION['login'] = $_POST['login']; print_r ($_SESSION['login']); echo '</a>';
+            echo '<a class="nav-link active" aria-current="page" href="?page=logout">Logout</a>';
         } 
           ?>
         </li>
