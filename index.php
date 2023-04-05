@@ -1,37 +1,14 @@
 <?php
+ob_start();
 include 'includes/header.php';
-?>
-<table> 
-    <tr style="font-weight:bold; color:red;">
-        <td>  
-            Image
-        </td>
-        <td>  
-            Nom de bonnet
-        </td>
-        <td>  
-            Prix HT (€)
-        </td>
-        <td>  
-            Prix TTC (€)
-        </td>
-        <td>  
-            Description
-        </td>
-    </tr>
-    <?php
-        for($key = 0; $key < 3; $key++)
-            {
-                $beanie = $beanies[$key];
-                echo'
-                    <tr>
-                    ';
-                affichageProduit($beanie);
-                }
+$page ='home'; 
 
-?>
-</table>
-<a href="list.php" class="btn btn-outline-dark" role = "button">Voir tous les produits</a>
-<?php
-include 'includes/footer.php';  
+if (isset($_GET['page'])){
+// foreach ($pages as $page) {
+    $page = $_GET['page'];}
+// }
+
+include 'pages/'.$page.'.php';
+include './includes/footer.php'; 
+ob_end_flush() ;
 ?>

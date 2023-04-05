@@ -1,11 +1,6 @@
-<?php
-include 'includes/header.php';
-?>
+
 <table> 
     <tr style="font-weight:bold; color:red;">
-        <td>  
-            No.
-        </td>
         <td>  
             Image
         </td>
@@ -22,18 +17,17 @@ include 'includes/header.php';
             Description
         </td>
     </tr>
-<?php
-    foreach ($beanies as $key => $beanie){
-        echo'
-            <tr>
-            <td>',
-            $key + 1,
-            '</td>
-            ';
-        affichageProduit($beanie);
-    };
+    <?php
+        for($key = 0; $key < 3; $key++)
+            {
+                $beanie = $beanies[$key];
+                echo'
+                    <tr>
+                    ';
+                affichageProduit($beanie);
+                }
+
 ?>
 </table>
-<?php
-include 'includes/footer.php';  
-?>
+<a href="?page=list" class="btn btn-outline-dark" role = "button">Voir tous les produits</a>
+

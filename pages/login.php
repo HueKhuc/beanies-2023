@@ -1,6 +1,4 @@
-<?php
-include 'includes/header.php';
-?>
+
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 <!-- <form method="post" action="index.php"> -->
@@ -27,5 +25,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     Email vide !
   </div>';}
   }
-include 'includes/footer.php';  
+  
 ?>
