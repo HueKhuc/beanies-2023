@@ -8,6 +8,7 @@ function affichageProduit($a){
         $nom = $a['nom'];
         $prix = $a['prix'];
         $description = $a['description'];
+        $id = $a['id'];
     echo'
     <td>
     <img src="',
