@@ -21,11 +21,9 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="?page=home">Home</a>
-          <!-- <a class="nav-link active" aria-current="page" href="home.php">Home</a> -->
         </li>
         <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="?page=list">Tous produits</a>
-          <!-- <a class="nav-link active" aria-current="page" href="list.php">Tous produits</a> -->
         </li>
         <li class="nav-item">
             <?php if (empty($_POST['login']))echo '
