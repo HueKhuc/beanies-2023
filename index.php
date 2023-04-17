@@ -1,6 +1,13 @@
 <?php
 ob_start();
 include 'includes/header.php';
+$pages = [
+    'home',
+    'list',
+    'login',
+    'logout',
+    'panier',
+];
 $page ='home'; 
 
 if (isset($_GET['page'])){

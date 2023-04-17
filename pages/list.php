@@ -1,3 +1,4 @@
+<!-- <form method="post" action="" name="add"> -->
 <table> 
     <tr style="font-weight:bold; color:red;">
         <td>  
@@ -23,17 +24,17 @@
         </td>
     </tr>
 <?php
-    foreach ($beanies as $key => $beanie){
+    foreach ($beanies as $id => $beanie){
         echo'
             <tr>
             <td>',
-            $key + 1,
+            $id + 1,
             '</td>
             ';
         affichageProduit($beanie);
         echo '<td>
                 <a class="btn btn-outline-dark" name = "cart" 
-                    href="?page=panier&action=addToCart&id='.$beanie['id'].'">
+                    href="?page=panier&action=plus&id='.$id.'">
                         Ajouter au panier
                 </a>
                 </td>';
@@ -42,3 +43,5 @@
     }
 ?>
 </table>
+<!-- </form> -->
+
