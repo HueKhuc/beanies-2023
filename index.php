@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 include 'includes/header.php';
 $pages = [
     'home',
@@ -8,14 +9,15 @@ $pages = [
     'logout',
     'panier',
 ];
-$page ='home'; 
+$page = 'home';
 
-if (isset($_GET['page'])){
-// foreach ($pages as $page) {
-    $page = $_GET['page'];}
+if (isset($_GET['page'])) {
+    // foreach ($pages as $page) {
+    $page = $_GET['page'];
+}
 // }
 
-include 'pages/'.$page.'.php';
-include './includes/footer.php'; 
-ob_end_flush() ;
+include 'pages/' . $page . '.php';
+include './includes/footer.php';
+ob_end_flush();
 ?>

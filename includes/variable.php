@@ -1,33 +1,35 @@
 <?php
 $mdp = 'toto';
-$beanies = [
-    [
-        'id' => 1,
-        'nom'=>'bonnet en laine',
-        'prix' => 10,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida',
-        'image' => './img/bonnet_laine.jpg'
-    ],
-    [
-        'id' => 2,
-        'nom'=>'bonnet en laine bio',
-        'prix' => 14,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida',
-        'image' => './img/bonnet_laine_bio.jpg'
-    ],
-    [
-        'id' => 3,
-        'nom'=>'bonnet en laine et cachemire',
-        'prix' => 20,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida',
-        'image' => './img/bonnet_laine_cachemire.jpg'
-    ],
-    [
-        'id' => 4,
-        'nom'=>'bonnet arc en ciel',
-        'prix' => 12,
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida',
-        'image' => './img/bonnet_arc_en_ciel.jpg'
-    ],
-    ];
-    ?>
+$description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam.';
+
+$beanie1 = new Beanie();
+$beanie1->setName("bonnet en laine");
+$beanie1->setPrice(10);
+$beanie1->setDescription($description);
+$beanie1->setImage("./img/bonnet_laine.jpg");
+
+$beanie2 = new Beanie();
+$beanie2->setName("bonnet en laine bio");
+$beanie2->setPrice(14);
+$beanie2->setDescription($description);
+$beanie2->setImage("./img/bonnet_laine_bio.jpg");
+
+$beanie3 = new Beanie();
+$beanie3->setName("bonnet en laine et cachemire");
+$beanie3->setPrice(20);
+$beanie3->setDescription($description);
+$beanie3->setImage("./img/bonnet_laine_cachemire.jpg");
+
+$beanie4 = new Beanie();
+$beanie4->setName("bonnet arc en ciel");
+$beanie4->setPrice(12);
+$beanie4->setDescription($description);
+$beanie4->setImage("./img/bonnet_arc_en_ciel.jpg");
+
+$mesProduits = [
+    1 => $beanie1,
+    2 => $beanie2,
+    3 => $beanie3,
+    4 => $beanie4,
+];
+?>
