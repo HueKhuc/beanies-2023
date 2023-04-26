@@ -1,6 +1,6 @@
 <?php
 class Beanie
-{    
+{
     const AVAILABLE_SIZES = ["S", "M", "L", "XL"];
 
     const MATERIAL_WOOL = 'wool';
@@ -22,22 +22,21 @@ class Beanie
     protected float $price = 0.0;
     protected ?string $image;
     protected ?string $description;
-
-    
-    public function getSizes():array
+    protected ?int $id;
+    public function getSizes(): array
     {
         return $this->sizes;
     }
-    public function setSizes(array $sizes = []):self
+    public function setSizes(array $sizes = []): self
     {
         foreach ($sizes as $size) {
             $this->addSize($size);
         }
         return $this;
     }
-    public function addSize(string $size):self
+    public function addSize(string $size): self
     {
-        if (!in_array($size,self::AVAILABLE_SIZES)) {
+        if (!in_array($size, self::AVAILABLE_SIZES)) {
             return $this;
         }
         if (!in_array($size, $this->sizes)) {
@@ -72,7 +71,7 @@ class Beanie
     {
         return ucfirst(strtolower($this->name));
     }
-    public function setName( $name): self
+    public function setName($name): self
     {
         $this->name = $name;
         return $this;
@@ -81,7 +80,7 @@ class Beanie
     {
         return ($this->price);
     }
-    public function setPrice( $price): self
+    public function setPrice($price): self
     {
         $this->price = $price;
         return $this;
@@ -90,7 +89,7 @@ class Beanie
     {
         return ucfirst(strtolower($this->description));
     }
-    public function setDescription( $description): self
+    public function setDescription($description): self
     {
         $this->description = $description;
         return $this;
@@ -104,5 +103,21 @@ class Beanie
         $this->image = $image;
         return $this;
     }
+
+	/**
+	 * @return int|null
+	 */
+	public function getId(): ?int {
+		return $this->id;
+	}
+	
+	/**
+	 * @param int|null $id 
+	 * @return self
+	 */
+	public function setId(?int $id): self {
+		$this->id = $id;
+		return $this;
+	}
 }
 ?>
