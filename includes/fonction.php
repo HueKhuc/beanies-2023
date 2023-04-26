@@ -10,6 +10,7 @@ function affichageProduit($a)
     $prix = $a->getPrice();
     $description = $a->getDescription();
     $image = $a->getImage();
+    $id = $a->getId();
 
     echo '
     <div class="card text-center" style="width: 18rem;">
@@ -20,7 +21,8 @@ function affichageProduit($a)
             <p class="card-text">', $description, '</p>
         </div>
         <div class="card-footer">
-    <a class="btn btn-outline-dark" name = "cart" href="?page=panier&action=plus&id='
+    <a class="btn btn-outline-dark" name = "cart" href="?page=panier&action=plus&id='.$id.'">
+    Ajouter au panier </a></div></div>'
     ;
 }
 

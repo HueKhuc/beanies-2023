@@ -1,39 +1,6 @@
 <?php
-$beaniesFiltered = $mesProduits;
-$material = null;
-$minPrice = null;
-$maxPrice = null;
-$size = null;
+$beaniesFiltered = new BeanieFilter($mesProduits, $_POST);
 
-
-if (!empty($_POST['material'])) {
-    $material = trim($_POST['material']);
-
-    $beaniesFiltered = array_filter($beaniesFiltered, function (Beanie $beanie) use ($material) {
-        return in_array($material, $beanie->getMaterial());
-    });
-}
-if (!empty($_POST['size'])) {
-    $size = trim($_POST['size']);
-
-    $beaniesFiltered = array_filter($beaniesFiltered, function (Beanie $beanie) use ($size) {
-        return in_array($size, $beanie->getSizes());
-    });
-}
-if (!empty($_POST['minPrice'])) {
-    $minPrice = floatval($_POST['minPrice']);
-
-    $beaniesFiltered = array_filter($beaniesFiltered, function (Beanie $beanie) use ($minPrice) {
-        return $beanie->getPrice() >= $minPrice;
-    });
-}
-if (!empty($_POST['maxPrice'])) {
-    $maxPrice = floatval($_POST['maxPrice']);
-
-    $beaniesFiltered = array_filter($beaniesFiltered, function (Beanie $beanie) use ($maxPrice) {
-        return $beanie->getPrice() <= $maxPrice;
-    });
-}
 ?>
 <form action="" method="POST">
     <div class="form-row d-flex flex-row gap-2 m-3">
@@ -45,7 +12,7 @@ if (!empty($_POST['maxPrice'])) {
                 <?php
                 foreach (Beanie::AVAILABLE_MATERIALS as $value => $name) {
                     echo '<option value="' . $value . '"';
-                    if ($value == $material) {
+                    if ($value == $beaniesFiltered->getMaterial()) {
                         echo 'selected';
                     }
                     echo '>' . $name . '</option>';
@@ -60,8 +27,8 @@ if (!empty($_POST['maxPrice'])) {
                 <option value="">Choose...</option>
                 <?php
                 foreach (Beanie::AVAILABLE_SIZES as $taille) {
-                    echo '<option value="' . $taille. '"';
-                    if ($taille == $size) {
+                    echo '<option value="' . $taille . '"';
+                    if ($taille == $beaniesFiltered->getSize()) {
                         echo 'selected';
                     }
                     echo '>' . $taille . '</option>';
@@ -73,12 +40,12 @@ if (!empty($_POST['maxPrice'])) {
         <div class="form-group d-flex flex-row gap-2 align-items-center text-center">
             <label for="minPrice">Min (€)</label>
             <input type="number" name="minPrice" id="minPrice" class="form-control custom-select"
-                value="<?php echo $minPrice; ?>">
+                value="<?php echo $beaniesFiltered->getMinPrice(); ?>">
         </div>
         <div class="form-group d-flex flex-row gap-2 align-items-center text-center">
             <label for="maxPrice">Max (€)</label>
             <input type="number" name="maxPrice" id="maxPrice" class="form-control custom-select"
-                value="<?php echo $maxPrice; ?>">
+                value="<?php echo $beaniesFiltered->getMaxPrice(); ?>">
         </div>
         <button class="btn btn-outline-dark align-self-center" type="submit">Filtre</button>
     </div>
@@ -86,11 +53,10 @@ if (!empty($_POST['maxPrice'])) {
 
 <div class="d-flex flex-row justify-content-center gap-5">
     <?php
-    foreach ($beaniesFiltered as $key => $beanie) {
+    foreach ($beaniesFiltered->getResult() as $beanie) {
         affichageProduit($beanie);
-        echo $key . '">
-                Ajouter au panier </a></div></div>';
     }
     ?>
+    
 
 </div>
