@@ -3,11 +3,6 @@
   for ($key = 1; $key < 4; $key++) {
     $beanie = $mesProduits[$key];
     affichageProduit($beanie);
-    echo $key . '">
-                Ajouter au panier
-    </a>
-</div>
-</div>';
   }
   ?>
 </div>
